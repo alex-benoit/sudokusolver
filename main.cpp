@@ -101,7 +101,7 @@ void initialise_GUI(int* argc, char*** argv)   /// This function initializes the
         {
             grid_widg[i][j] = gtk_entry_new();
             gtk_entry_set_max_length(GTK_ENTRY(grid_widg[i][j]), 1);   // sets the maximum lenghts of the cell's inputs
-            gtk_widget_set_size_request(grid_widg[i][j], 40, 40);   // sets the size of the cells
+            gtk_widget_set_size_request(grid_widg[i][j], 40, 40);   // sets the size of the cells  // Doesnt apply GTK 3.x +
             gtk_box_pack_start(GTK_BOX(horizontal_box), grid_widg[i][j], 0, 0, 0);   // creates the cells
             if((j+1)%3 == 0)
             {
@@ -120,7 +120,7 @@ void initialise_GUI(int* argc, char*** argv)   /// This function initializes the
     g_signal_connect(solve_button, "clicked", G_CALLBACK(get_numbers), NULL);   // calls the function get_numbers when Solve Button clicked (this function collects the numbers and solves the Sudoku as well)
     gtk_box_pack_start(GTK_BOX(vertical_box), solve_button, 0, 0, 0);   // creates the Solve Button
     gtk_widget_set_size_request(solve_button, 50, 50);   // makes the Solve Button larger than the Exit Button
-    exit_button = gtk_button_new_with_label("Exit (Ctrl + C in Terminal to Abort)");   // creates the appropriate label for the Exit Button
+    exit_button = gtk_button_new_with_label("Exit");   // creates the appropriate label for the Exit Button
     g_signal_connect(exit_button, "clicked", G_CALLBACK(gtk_main_quit), NULL);   // calls the function gtk_main_quit (that terminates the program) when Exit Button clicked
     gtk_box_pack_start(GTK_BOX(vertical_box), exit_button, 0, 0, 0);   // creates the Exit Button
     g_signal_connect(window, "delete-event", G_CALLBACK(gtk_main_quit), NULL);   //if the red cross if pressed, the program terminates when we close the window
@@ -421,10 +421,10 @@ bool verif_2(int i, int j)   /// This function verifies that the value already e
 
 void open_error()   /// This function is called when there is an error/the programm cannot solve the Sudoku and displays an error through an Error Window
 {
-        GtkWidget* dialog, *label;
+        GtkWidget *dialog, *label;
         dialog = gtk_dialog_new_with_buttons("Error", GTK_WINDOW(window), GTK_DIALOG_MODAL, GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);   // creating a window that will pop-up when an error is found
         label = gtk_label_new("This Sudoku cannot be solved! Try checking the inputs...");   // It will have this appropriate label
-        // gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog) -> vbox), label, 0, 0, 0);
+        // gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, 0, 0, 0);  // Causes an issue with GTK 3.x +
         gtk_widget_show_all(dialog);   // shows the widget created
         gtk_dialog_run(GTK_DIALOG(dialog));   // continues to run until the OK signal is sent back
         gtk_widget_destroy(dialog);   // again destroys the dialog as we don't need it after the void function is completed
