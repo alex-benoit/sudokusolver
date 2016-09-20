@@ -1,6 +1,6 @@
 ## Sudoku Solver (C++)
 
-Algorithm that solves a Sudoku using first a 'smart' method and then a bruteforce method if the first one is not enough.
+Graphical Sudoku Solver in C++ and GTK. The solver uses a combination of a smart home-made algorithm and a bruteforce algorithm to solve Sudokus in the best possible time. See attached PDF for code explanation.
 
 ## Functionalities
 
@@ -26,7 +26,7 @@ sudo apt-get install libgtkmm-3.0-dev
 
 ## Known bugs
 
- - Error message when Sudoku is invalid does not appear anymore (maybe due to GTK2.x -> GTK3.0 change)
+ - Error message when Sudoku is invalid does not appear anymore (maybe due to GTK2.x -> GTK3.0 change -- line 427 uncommented raises an error at compilation)
  - The GUI window is way to large when using GTK3.0 as the command below does not take effect when compiled with GTK3.0 and the number grids take their default size.
 
 ```
