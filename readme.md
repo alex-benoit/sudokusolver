@@ -30,5 +30,5 @@ To run from terminal:
 ./SudokuSolver
 ```
 
-![alt tag](http://imgur.com/a/CiXDO)
-![alt tag](http://imgur.com/a/aq7Pq)
+![alt tag](http://i.imgur.com/iNz6urv.png)
+![alt tag](http://i.imgur.com/lyGTPXe.png)
