@@ -29,3 +29,6 @@ To run from terminal:
 ```
 ./SudokuSolver
 ```
+
+![alt tag](http://imgur.com/a/CiXDO)
+![alt tag](http://imgur.com/a/aq7Pq)
